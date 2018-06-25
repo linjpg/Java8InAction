@@ -53,4 +53,5 @@ public class Summarizing {
     private static String getShortMenuCommaSeparated() {
         return menu.stream().map(Dish::getName).collect(joining(", "));
     }
+    int totalCalories = menu.stream().collect(summingInt(Dish::getCalories));
 }

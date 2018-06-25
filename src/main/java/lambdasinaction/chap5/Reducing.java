@@ -27,5 +27,8 @@ public class Reducing{
                            .map(Dish::getCalories)
                            .reduce(0, Integer::sum);
         System.out.println("Number of calories:" + calories);
+
+        Stream<String> stream = Stream.of("Java 8","Lambdas","In","Action");
+        stream.map(String::toUpperCase).forEach(System.out::print);
     }
 }

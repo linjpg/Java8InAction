@@ -29,7 +29,7 @@ public class PuttingIntoPractice{
                                                .filter(transaction -> transaction.getYear() == 2011)
                                                .sorted(comparing(Transaction::getValue))
                                                .collect(toList());
-        System.out.println(tr2011);
+        System.out.println(tr2011+"------------");
         
         // Query 2: What are all the unique cities where the traders work?
         List<String> cities = 
@@ -78,6 +78,12 @@ public class PuttingIntoPractice{
                     .filter(trader -> trader.getCity().equals("Milan"))
                     .forEach(trader -> trader.setCity("Cambridge"));
         System.out.println(transactions);
+
+        transactions.stream()
+                .map(Transaction::getTrader)
+                .filter(trader -> trader.getCity().endsWith("Cambridge"))
+                .map(d->d.getCity())
+                .forEach(System.out::print);
         
         
         // Query 7: What's the highest value in all the transactions?
